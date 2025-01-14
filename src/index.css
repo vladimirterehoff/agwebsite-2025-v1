@@ -29,7 +29,7 @@
 
 @layer base {
   * {
-    @apply border-default;
+    @apply border-[#E2E8F0];
   }
   body {
     @apply bg-background text-foreground antialiased;
