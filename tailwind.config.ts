@@ -25,6 +25,10 @@ export default {
         foreground: "#0F172A",
         muted: "#94A3B8",
         accent: "#F8FAFC",
+        border: "hsl(var(--border))",
+      },
+      borderColor: {
+        DEFAULT: "hsl(var(--border))",
       },
       keyframes: {
         "fade-up": {
