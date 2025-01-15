@@ -6,7 +6,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4">
+      <section className="pt-32 pb-16 px-4" aria-label="hero">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 animate-fade-up">
             Building Tomorrow's Digital Solutions
@@ -27,14 +27,14 @@ const Index = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16 bg-accent">
+      <section className="py-16 bg-accent" aria-label="services">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-primary mb-12 text-center">
             Our Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service) => (
-              <div
+              <article
                 key={service.title}
                 className="bg-background p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
@@ -43,10 +43,11 @@ const Index = () => {
                 <Link
                   to={service.href}
                   className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+                  aria-label={`Learn more about ${service.title}`}
                 >
-                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  Learn More <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Link>
-              </div>
+              </article>
             ))}
           </div>
         </div>
