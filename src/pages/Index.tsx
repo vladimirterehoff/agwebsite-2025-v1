@@ -11,7 +11,7 @@ const Index = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 animate-fade-up">
             Building Tomorrow's Digital Solutions
           </h1>
-          <p className="text-lg md:text-xl text-muted mb-8 max-w-2xl mx-auto animate-fade-up">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up">
             We help businesses transform their ideas into powerful software solutions
             that drive growth and innovation.
           </p>
@@ -36,13 +36,13 @@ const Index = () => {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className="bg-background p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
               >
                 <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted mb-4">{service.description}</p>
+                <p className="text-muted-foreground mb-4">{service.description}</p>
                 <Link
                   to={service.href}
-                  className="inline-flex items-center text-secondary hover:text-primary transition-colors"
+                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
                 >
                   Learn More <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
