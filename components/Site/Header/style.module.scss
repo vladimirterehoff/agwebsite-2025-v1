@@ -1,0 +1,49 @@
+@import "styles/site/_variables";
+
+.header{
+  padding:20px;
+  background: #f9f9f9;
+  margin:0px 0px 50px;
+}
+.content{
+  max-width: $contentWidth;
+  margin:0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  font-weight:bold;
+  font-size:40px;
+
+}
+
+.navigation{
+  ul{
+    display: flex;
+    li{
+      margin:0px 50px;
+    }
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+}
+
+.navigation_mobile{
+  min-width:300px;
+
+  a{
+    display: block;
+    padding: 15px;
+    border-bottom:1px solid #cccccc;
+  }
+}
+
+.navigation_mobile_close{
+  position: absolute !important;
+  top: 0px;
+  right: 0px;
+}

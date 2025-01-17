@@ -1,0 +1,62 @@
+@import "styles/admin/_colors";
+
+.root {
+  background-color: $backgroundDark;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+.wrapper{
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+  padding-top: 64px;
+
+}
+
+
+.content_container{
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.content{
+  flex: 1 1 auto;
+  height: 100%;
+  overflow: auto;
+}
+
+.page{
+  background-color: $backgroundDark;
+  min-height: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+
+.card_container{
+  padding-bottom: 80px;
+  padding-top: 80px;
+  max-width:600px !important;
+}
+.card_content {
+  display: flex;
+  flex-direction: column;
+  padding:30px !important;
+}
+.authorize_block{
+  font-size:15px;
+  position:relative;
+  margin:0px auto;
+
+  a{
+    color: $textGray;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

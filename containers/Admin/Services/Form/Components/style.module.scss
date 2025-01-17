@@ -1,0 +1,14 @@
+@import '~styles/site/variables.scss'; 
+
+.vehicleTypeList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    
+  }
+
+}

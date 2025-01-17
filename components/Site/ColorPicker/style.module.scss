@@ -1,0 +1,45 @@
+.colorPickerContainer {
+  max-width: 300px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  .popover {
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+  }
+  .colorPickerResult {
+    display: flex;
+    width: 100%;
+    font-size: 15px;
+
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+
+    >div {
+      width: 80%;
+      padding: 10px;
+
+      &:first-child {
+        cursor: pointer;
+      }
+    }
+
+    .colorPickerResultEl {
+      width: 20%;
+      height: 50px;
+      border-radius: 0 5px 5px 0;
+      border-left: 1px solid #ccc;
+    }
+  }
+  .cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

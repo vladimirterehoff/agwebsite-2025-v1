@@ -1,0 +1,152 @@
+@import "styles/site/colors";
+@import "styles/site/variables";
+@import "styles/site/fonts";
+
+.fileUploader{
+
+}
+
+.fileUploader_container{
+  position: relative;
+}
+.fileUploader_input{
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  cursor: pointer;
+}
+
+.fileUploader_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fileUploader_block {
+  padding: 10px 0;
+  width: 175px;
+  margin:0px 10px 0px 0px;
+}
+
+.fileUploader_list {}
+
+.fileUploader_button {
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
+  cursor: pointer;
+  span {
+    margin-top: 0px;
+    color: $colorGray;
+    display: block;
+    &:first-child {
+      margin-top: 4px;
+    }
+  }
+}
+.fileUploader_button_image {
+  width: 32px;
+  margin-right:10px;
+}
+
+.fileUploader_block_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > div{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.fileUploader_block_image{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto 5px;
+  position: relative;
+  width: 100%;
+  img {
+    width: 100%;
+  }
+
+  video{
+    width: 100%;
+    height: 100px;
+    background: #000000;
+  }
+}
+
+.loaderBlock {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: $colorBlue;
+  margin-top: 15px;
+  img{
+    vertical-align: sub;
+    margin-left: 10px;
+  }
+}
+
+.loaderSuccess {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: $colorBlue;
+  overflow: hidden;
+  img{
+    vertical-align: sub;
+    margin-left: 10px;
+  }
+}
+.loaderSuccessAnimation{
+  height:0px;
+  display: block;
+}
+
+.progressBar {
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: $lightGrey;
+  margin-top: 15px;
+  > div{
+    height:100%;
+    transition: width 0.3s ease 0s;
+    background: $colorBlue;
+  }
+}
+
+.image_error{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right:0px;
+  background: rgba(0,0,0,0.6);
+  transition: width 0.3s ease 0s;
+}
+
+.uploadError{
+  text-align: center;
+  color:$red;
+  margin-top:15px;
+}
+
+.fileUploader_image{
+  padding-top: 54.4%;
+  background-size: cover;
+  width: 100%;
+  background-position: center;
+}
+
+.maxCountHelperText{
+  text-transform: lowercase;
+  &:first-letter{
+    text-transform: capitalize;
+  }
+}

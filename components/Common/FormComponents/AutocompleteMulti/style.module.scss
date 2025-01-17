@@ -1,0 +1,65 @@
+.autocompleteContainer {
+  position: relative;
+  width: 100%;
+}
+
+.error {
+  margin: 3px 14px 0;
+}
+
+.dropdownMenu {
+  width: 100%;
+  top: 5px;
+  z-index: 99999;
+  border-radius: 5px;
+}
+
+.autocompleteList {
+  &_item {
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    &:hover {
+      background: #f9f9f9;
+    }
+  }
+}
+
+.menuWrap {
+  min-height: 50px;
+  max-height: 200px;
+  overflow: auto;
+  border-radius: 5px;
+  background: #ffffff;
+  padding: 5px 0px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.placeholderText {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: .5;
+}
+
+.textfield{
+  flex-wrap: wrap;
+  padding: 13px 40px 13px 13px;
+  min-height: 54px;
+  > div{
+    margin: 2px 5px 2px 0px;
+  }
+  input{
+    width: 100px;
+    padding: 0px;
+    flex-grow: 1;
+  }
+  button{
+    padding: 3px;
+    position: absolute;
+    top: 13px;
+    right: 8px;
+  }
+}

@@ -1,0 +1,7 @@
+.selectMaterial {
+  width: 100%;
+
+  .Mui-focused.MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(14px, 5px) scale(0.75)!important;
+  }
+}

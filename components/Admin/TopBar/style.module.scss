@@ -1,0 +1,23 @@
+.topbar {
+  z-index: 1300;
+  box-shadow: none;
+  //background-color:$topbarBackgroud;
+}
+
+.toolbar{
+  min-height: 64px;
+  justify-content: space-between;
+}
+
+.avatar {
+  height: 32px;
+  width: 32px;
+  margin-right: 8px
+}
+.popover {
+  width: 200px;
+}
+
+.headerLogo {
+  height: 25px;
+}

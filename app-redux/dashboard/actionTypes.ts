@@ -1,0 +1,8 @@
+/**
+ * Action Types for dispatch of Dashboard state
+ */
+export const ACTION_TYPES = {
+  GET_ORDERS_GRAPH: 'GET_ORDERS_GRAPH',
+  GET_ORDERS_GRAPH_SUCCESS: 'GET_ORDERS_GRAPH_SUCCESS',
+  GET_ORDERS_GRAPH_ERROR: 'GET_ORDERS_GRAPH_ERROR',
+};

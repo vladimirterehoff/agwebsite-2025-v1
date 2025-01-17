@@ -1,0 +1,23 @@
+@import "./font-face";
+
+/*
+EXAMPLE
+@include font-face("jost", "/fonts/jost/Jost");
+
+$jostRegular: 'jost', Arial, sans-serif;
+
+@mixin jostRegular {
+  font-family: $jostRegular;
+  font-weight: 400;
+}
+
+@mixin headerH1 {
+  @include jostRegular;
+  font-size: 34px;
+  line-height: 41px;
+  @include to($mobile) {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+*/

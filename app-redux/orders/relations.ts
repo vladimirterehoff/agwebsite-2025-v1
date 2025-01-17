@@ -1,0 +1,30 @@
+export enum ORDER_RELATIONS {
+  USER = 'user',
+  USER_AVATAR = 'user.avatar',
+  PROVIDER = 'provider',
+  PROVIDER_USER = 'provider.user',
+  PROVIDER_USER_AVATAR = 'provider.user.avatar',
+  PROVIDER_CONTACTS = 'provider.contacts',
+  
+  VEHICLE = 'vehicle',
+  VEHICLE_MANUFACTURER = 'vehicle.manufacturer',
+  VEHICLE_VEHICLE_TYPE = 'vehicle.vehicleType',
+  VEHICLE_PHOTOS_EXTERIOR = 'vehicle.photosExterior',
+  VEHICLE_PHOTOS_INTERIOR = 'vehicle.photosInterior',
+
+  //
+  PAYMENT_CARD = 'paymentCard',
+  ITEMS = 'items',
+  ITEMS_SERVICE = 'items.service',
+  LOGS = 'logs',
+  PROVIDER_REQUESTS = 'providerRequests',
+  PROVIDER_REQUESTS_PROVIDER = 'providerRequests.provider',
+  PROVIDER_REQUESTS_PROVIDER_SERVICES = 'providerRequests.provider.services',
+  PROVIDER_REQUESTS_PROVIDER_CONTACTS = 'providerRequests.provider.contacts',
+  PROVIDER_REQUESTS_PROVIDER_USER = 'providerRequests.provider.user',
+  PROVIDER_REQUESTS_PROVIDER_USER_AVATAR = 'providerRequests.provider.user.avatar',
+  BEFORE_PHOTOS = 'beforePhotos',
+  AFTER_PHOTOS = 'afterPhotos',
+  REVIEW = 'review',
+  SERVICES = 'items.service',
+}
