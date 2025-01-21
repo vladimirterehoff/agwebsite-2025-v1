@@ -1,70 +1,69 @@
-## Install project
+# Welcome to your Lovable project
 
-#### 1. Install node.js and npm  (Recomended version 16)
+## Project info
 
-#### 2. Install npm pakcages
-npm install
+**URL**: https://lovable.dev/projects/5c858e6f-8bf7-4327-a402-3b11c53e22c6
 
-#### 3. Build the project
-npm run build
+## How can I edit this code?
 
-#### 4.  Start project
+There are several ways of editing your application.
 
-###### DEV environment
+**Use Lovable**
+
+Simply visit the [Lovable Project](https://lovable.dev/projects/5c858e6f-8bf7-4327-a402-3b11c53e22c6) and start prompting.
+
+Changes made via Lovable will be committed automatically to this repo.
+
+**Use your preferred IDE**
+
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+```
 
-###### PROD environment
-npm run start
+**Edit a file directly in GitHub**
 
-## Helper commands
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-#### 1. Setup site only: remove all admin directories and files
-npm run setup_site
+**Use GitHub Codespaces**
 
-#### 2. Setup admin only: remove all site directories and files
-npm run setup_admin
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-#### 3. Create redux: create redux architecture for the new entity
-npm run create_redux
+## What technologies are used for this project?
 
-#### 4. Create CRUD: create crud architecture for the new entity
-npm run create_crud
+This project is built with .
 
-## Documentation
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-**app-redux** - store of the project: separate directories for each entity (arhitecture of entities based on the BE arhitecture) and base config files. Entity directory include:
+## How can I deploy this project?
 
-action - requests for this entity
+Simply open [Lovable](https://lovable.dev/projects/5c858e6f-8bf7-4327-a402-3b11c53e22c6) and click on Share -> Publish.
 
-model - model of the entity and model of the state
+## I want to use a custom domain - is that possible?
 
-actionTypes - action types for the reducer
-
-reducer - rules to the transform of entity state.
-
-**pages** - pages of the project
-
-**containers** - containers for each page. Containers include content of the page without constant components (header, footer, global layout). Container can have inside Components directory with unique components only for this page. Global components (which are present in the project in several places) must be in component directory
-
-**components** - directory for global components of the project (components which are present in the project in several places)
-
-**hoc** - HOC for private and authorize pages, that help check access for this pages
-
-**hooks** - global hooks
-
-**services** - axios(base config file) and cookie
-
-**ssr** - config files of the server side rendering  
-
-**utils** - global constants and functions of the project
-
-**theme** - MUI theme config
-
-**styles** - base styles for the project
-_**Important:** styles for the component set to the style.module.scss file in component directory, not in the styles directory._
-
-**setup** - Scripts for the Helper commands (setup site, setup admin, create redux, create crud)
-
-## StyleGuide
-
-#### Form Elements - /style_guide/common
+We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
