@@ -15,16 +15,24 @@ async function render(pageContext: any) {
     </PageShell>
   );
 
-  return escapeInject`<!DOCTYPE html>
-    <html>
+  const documentHtml = escapeInject`<!DOCTYPE html>
+    <html lang="en">
       <head>
-        <title>Attract Group</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Attract Group - Custom Software Development Solutions</title>
+        <meta name="description" content="Transform your business with custom software solutions." />
         <link rel="stylesheet" href="/index.css" />
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(viewHtml)}</div>
       </body>
     </html>`;
+
+  return {
+    documentHtml,
+    pageContext: {
+      // We can add any custom data here
+    }
+  };
 }
