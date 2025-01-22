@@ -4,8 +4,15 @@ import { hydrateRoot } from 'react-dom/client'
 
 async function render(pageContext: any) {
   const { Page, pageProps } = pageContext
+  const rootElement = document.getElementById('root')
+  
+  if (!rootElement) {
+    console.error('Root element not found for hydration')
+    return
+  }
+
   hydrateRoot(
-    document.getElementById('root')!,
+    rootElement,
     <PageShell isClient={true}>
       <Page {...pageProps} />
     </PageShell>
