@@ -20,26 +20,26 @@ interface PageShellProps {
 }
 
 function PageShell({ children, isClient, url }: PageShellProps) {
-  const content = (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/services" element={<Services />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
-  );
+  const Router = isClient ? BrowserRouter : StaticRouter;
+  const routerProps = isClient ? {} : { location: url || '/' };
 
-  if (isClient) {
-    return <BrowserRouter>{content}</BrowserRouter>;
-  }
-  
-  return <StaticRouter location={url || '/'}>{content}</StaticRouter>;
+  return (
+    // @ts-ignore - StaticRouter has different props than BrowserRouter
+    <Router {...routerProps}>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/services" element={<Services />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
 }

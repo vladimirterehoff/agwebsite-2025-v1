@@ -9,8 +9,7 @@ async function render(pageContext: any) {
   const rootElement = document.getElementById('root')
   
   if (!rootElement) {
-    console.error('Root element not found for hydration')
-    return
+    throw new Error('DOM element #root not found')
   }
 
   hydrateRoot(

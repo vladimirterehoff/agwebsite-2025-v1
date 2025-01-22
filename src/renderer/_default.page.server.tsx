@@ -11,6 +11,9 @@ const passToClient = ['pageProps', 'urlPathname'];
 
 async function render(pageContext: any) {
   const { Page, pageProps, urlPathname } = pageContext;
+  
+  if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined');
+  
   const viewHtml = ReactDOMServer.renderToString(
     <PageShell url={urlPathname}>
       <Page {...pageProps} />
@@ -25,7 +28,6 @@ async function render(pageContext: any) {
         <title>Attract Group - Custom Software Development Solutions</title>
         <meta name="description" content="Transform your business with custom software solutions." />
         <link rel="stylesheet" href="/index.css" />
-        <script type="module" src="/src/main.tsx"></script>
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(viewHtml)}</div>
@@ -35,8 +37,9 @@ async function render(pageContext: any) {
   return {
     documentHtml,
     pageContext: {
-      // Enable Client-side Routing
-      enableClientRouting: true
+      enableClientRouting: true,
+      // This ensures the client-side router takes over after initial SSR
+      redirectTo: undefined
     }
   };
 }
