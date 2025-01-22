@@ -5,12 +5,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import Index from "./pages/Index";
-import Blog from "./pages/Blog";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Services from "./pages/Services";
-import CaseStudies from "./pages/CaseStudies";
+import { Page as Index } from "./pages/index.page";
+import { Page as Blog } from "./pages/Blog.page";
+import { Page as About } from "./pages/About.page";
+import { Page as Contact } from "./pages/Contact.page";
+import { Page as Services } from "./pages/Services.page";
+import { Page as CaseStudies } from "./pages/CaseStudies.page";
 
 const queryClient = new QueryClient();
 

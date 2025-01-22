@@ -1,8 +1,11 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Index = () => {
+export { Page };
+
+const Page = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -74,4 +77,3 @@ const services = [
   },
 ];
 
-export default Index;

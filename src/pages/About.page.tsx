@@ -1,4 +1,4 @@
-const About = () => {
+const Page = () => {
   return (
     <div className="min-h-screen pt-24">
       <div className="container mx-auto px-4">
@@ -59,4 +59,4 @@ const values = [
   },
 ];
 
-export default About;
+export { Page };
