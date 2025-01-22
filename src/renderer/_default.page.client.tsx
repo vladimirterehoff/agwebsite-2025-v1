@@ -3,6 +3,9 @@ import React from 'react'
 import { hydrateRoot } from 'react-dom/client'
 
 export { render }
+export { onHydrationEnd }
+export { onPageTransitionStart }
+export { onPageTransitionEnd }
 
 async function render(pageContext: any) {
   const { Page, pageProps } = pageContext
@@ -18,6 +21,16 @@ async function render(pageContext: any) {
       <Page {...pageProps} />
     </PageShell>
   )
+}
+
+function onHydrationEnd() {
+  console.log('Hydration finished; page is now interactive.')
+}
+function onPageTransitionStart() {
+  console.log('Page transition start')
+}
+function onPageTransitionEnd() {
+  console.log('Page transition end')
 }
 
 // Enable Client-side Routing

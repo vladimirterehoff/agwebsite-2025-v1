@@ -20,7 +20,8 @@ async function render(pageContext: any) {
     </PageShell>
   );
 
-  const documentHtml = escapeInject`<!DOCTYPE html>
+  return {
+    documentHtml: escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -32,12 +33,11 @@ async function render(pageContext: any) {
       <body>
         <div id="root">${dangerouslySkipEscape(viewHtml)}</div>
       </body>
-    </html>`;
-
-  return {
-    documentHtml,
+    </html>`,
     pageContext: {
-      enableClientRouting: true
+      enableClientRouting: true,
+      // This ensures the page is rendered on the client
+      redirectTo: urlPathname
     }
   };
 }
