@@ -37,9 +37,7 @@ async function render(pageContext: any) {
   return {
     documentHtml,
     pageContext: {
-      enableClientRouting: true,
-      // This ensures the client-side router takes over after initial SSR
-      redirectTo: undefined
+      enableClientRouting: true
     }
   };
 }

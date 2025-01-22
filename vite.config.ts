@@ -12,11 +12,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    ssr({
-      prerender: true,
-      disableAutoFullBuild: true,
-      includeAssetsImportedByServer: true
-    }),
+    ssr(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
