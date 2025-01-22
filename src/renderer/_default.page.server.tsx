@@ -5,7 +5,9 @@ import { PageShell } from "./PageShell";
 import "../index.css";
 
 export { render };
-export const passToClient = ['pageProps', 'urlPathname'];
+export { passToClient };
+
+const passToClient = ['pageProps', 'urlPathname'];
 
 async function render(pageContext: any) {
   const { Page, pageProps, urlPathname } = pageContext;
@@ -23,6 +25,7 @@ async function render(pageContext: any) {
         <title>Attract Group - Custom Software Development Solutions</title>
         <meta name="description" content="Transform your business with custom software solutions." />
         <link rel="stylesheet" href="/index.css" />
+        <script type="module" src="/src/main.tsx"></script>
       </head>
       <body>
         <div id="root">${dangerouslySkipEscape(viewHtml)}</div>
@@ -32,7 +35,8 @@ async function render(pageContext: any) {
   return {
     documentHtml,
     pageContext: {
-      // We can add any custom data here
+      // Enable Client-side Routing
+      enableClientRouting: true
     }
   };
 }

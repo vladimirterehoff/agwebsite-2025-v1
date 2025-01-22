@@ -14,7 +14,10 @@ export default defineConfig(({ mode }) => ({
     react(),
     ssr({
       prerender: true,
-      disableAutoFullBuild: true
+      disableAutoFullBuild: true,
+      includeAssetsImportedByServer: true,
+      baseAssets: '/',
+      base: '/'
     }),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
