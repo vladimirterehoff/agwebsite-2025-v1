@@ -11,7 +11,13 @@ import { Page as Home } from '../pages/index.page'
 
 export { PageShell }
 
-function PageShell({ children, isClient, url }: { children: React.ReactNode, isClient?: boolean, url?: string }) {
+interface PageShellProps {
+  children: React.ReactNode;
+  isClient?: boolean;
+  url?: string;
+}
+
+function PageShell({ children, isClient, url }: PageShellProps) {
   const content = (
     <Routes>
       <Route path="/" element={<Home />} />

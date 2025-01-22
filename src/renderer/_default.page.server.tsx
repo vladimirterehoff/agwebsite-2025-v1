@@ -1,6 +1,3 @@
-// /renderer/_default.page.server.jsx
-// Environment: server
-
 import ReactDOMServer from "react-dom/server";
 import React from "react";
 import { escapeInject, dangerouslySkipEscape } from "vite-plugin-ssr/server";
@@ -10,7 +7,7 @@ import "../index.css";
 export { render };
 export const passToClient = ['pageProps', 'urlPathname'];
 
-async function render(pageContext) {
+async function render(pageContext: any) {
   const { Page, pageProps, urlPathname } = pageContext;
   const viewHtml = ReactDOMServer.renderToString(
     <PageShell url={urlPathname}>
