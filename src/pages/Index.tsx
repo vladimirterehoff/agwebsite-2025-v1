@@ -1,18 +1,15 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export { Page };
-
-const Page = () => {
+const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4" aria-label="hero">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 animate-fade-up">
-            Building Tomorrow's Digital Solutions.
+            Building Tomorrow's Digital Solutions
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up">
             We help businesses transform their ideas into powerful software solutions
@@ -77,3 +74,4 @@ const services = [
   },
 ];
 
+export default Index;

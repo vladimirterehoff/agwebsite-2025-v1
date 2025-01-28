@@ -1,10 +1,7 @@
-import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
-export { Page };
-
-const Page = () => {
+const CaseStudies = () => {
   return (
     <div className="min-h-screen pt-24">
       <div className="container mx-auto px-4">
@@ -62,3 +59,5 @@ const caseStudies = [
     image: "/placeholder.svg",
   },
 ];
+
+export default CaseStudies;
