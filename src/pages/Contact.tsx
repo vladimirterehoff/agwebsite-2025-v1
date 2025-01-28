@@ -1,7 +1,6 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 
-const Page = () => {
+const Contact = () => {
   return (
     <div className="min-h-screen pt-24">
       <div className="container mx-auto px-4">
@@ -72,4 +71,4 @@ const Page = () => {
   );
 };
 
-export { Page };
+export default Contact;

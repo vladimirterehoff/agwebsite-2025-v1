@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Page = () => {
+const Services = () => {
   return (
     <div className="min-h-screen pt-24">
       <div className="container mx-auto px-4">
@@ -70,4 +70,4 @@ const services = [
   },
 ];
 
-export { Page };
+export default Services;

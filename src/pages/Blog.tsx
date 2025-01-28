@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Page = () => {
+const Blog = () => {
   return (
     <div className="min-h-screen pt-24">
       <div className="container mx-auto px-4">
@@ -64,4 +64,4 @@ const blogPosts = [
   },
 ];
 
-export { Page };
+export default Blog;
