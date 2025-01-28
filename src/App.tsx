@@ -12,20 +12,20 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import CaseStudies from "./pages/CaseStudies";
 
-const queryClient = new QueryClient();
-
-const AppRoutes = () => (
-  <Routes>
-    <Route path="/" element={<Index />} />
-    <Route path="/blog" element={<Blog />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/contact" element={<Contact />} />
-    <Route path="/services" element={<Services />} />
-    <Route path="/case-studies" element={<CaseStudies />} />
-  </Routes>
-);
-
+// Create a new QueryClient instance for each request in SSR
 const App = ({ url = "/" }) => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        // Don't refetch on the server
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        retry: false,
+        staleTime: Infinity,
+      },
+    },
+  });
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -34,14 +34,14 @@ const App = ({ url = "/" }) => {
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-          </Routes>
+            {/* <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+            </Routes> */}
           </main>
           <Footer />
         </div>

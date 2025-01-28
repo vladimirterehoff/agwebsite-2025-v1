@@ -3,21 +3,21 @@ import { StaticRouter } from "react-router-dom/server";
 
 import App from "./App";
 import { StrictMode } from "react";
+import {Renderer} from "./renderer"
 
 interface IRenderProps {
   path: string;
 }
 
-export const render = (url: string) => {
-  // console.log('>> params', params);
-  const html = renderToString(
-    <StrictMode>
-      <h1>SERVER: {`${url}`}</h1>
-      <StaticRouter location={url}>
-        <App />
-      </StaticRouter>
-    </StrictMode>
-  );
+export { Renderer  as render }
+// export const render = (url: string) => {
+//   const html = renderToString(
+//     <StrictMode>
+//       <StaticRouter location={url}>
+//         <App url={url} />
+//       </StaticRouter>
+//     </StrictMode>
+//   );
 
-  return { html };
-};
+//   return { html };
+// };
