@@ -1,15 +1,24 @@
-import { StrictMode } from 'react'
-import { renderToString } from 'react-dom/server'
-import App from './App'
+import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
+import { QueryClient, QueryClientProvider, dehydrate } from "@tanstack/react-query";
+import App from "./App";
+import { StrictMode } from "react";
 
-export function render(_url: string) {
+export const render = (url: string) => {
+  const queryClient = new QueryClient();
+  
   const html = renderToString(
     <StrictMode>
-      <StaticRouter location={_url}>
-         <App url={`/${_url}`}/>
-      </StaticRouter>
-    </StrictMode>,
+      <QueryClientProvider client={queryClient}>
+        <StaticRouter location={url}>
+          <App />
+        </StaticRouter>
+      </QueryClientProvider>
+    </StrictMode>
   );
-  return { html }
-}
+
+  return {
+    html,
+    head: `<script>window.__REACT_QUERY_STATE__ = ${JSON.stringify(dehydrate(queryClient))}</script>`
+  };
+};
