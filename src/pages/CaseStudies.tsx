@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const caseStudies = [
   {
@@ -28,12 +28,7 @@ const caseStudies = [
 ];
 
 const CaseStudyCard = ({ study }: { study: typeof caseStudies[0] }) => {
-  const [isClient, setIsClient] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <Card className="flex flex-col h-full">
@@ -43,20 +38,13 @@ const CaseStudyCard = ({ study }: { study: typeof caseStudies[0] }) => {
       </CardHeader>
       <CardContent className="flex-grow flex flex-col">
         <div className="relative w-full h-48 mb-4">
-          {!isClient && <Skeleton className="w-full h-full rounded-md" />}
-          {isClient && (
-            <>
-              {!imageLoaded && <Skeleton className="w-full h-full rounded-md absolute inset-0" />}
-              <img
-                src={study.image}
-                alt={study.title}
-                className={`w-full h-full object-cover rounded-md transition-opacity duration-200 ${
-                  imageLoaded ? "opacity-100" : "opacity-0"
-                }`}
-                onLoad={() => setImageLoaded(true)}
-              />
-            </>
-          )}
+          <Skeleton className={`w-full h-full rounded-md absolute inset-0 ${imageLoaded ? 'hidden' : 'block'}`} />
+          <img
+            src={study.image}
+            alt={study.title}
+            className={`w-full h-full object-cover rounded-md ${imageLoaded ? 'block' : 'invisible'}`}
+            onLoad={() => setImageLoaded(true)}
+          />
         </div>
         <p className="text-muted-foreground mb-4 flex-grow">{study.description}</p>
         <Link
