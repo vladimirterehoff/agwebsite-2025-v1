@@ -25,7 +25,7 @@ const AppRoutes = () => (
   </Routes>
 );
 
-const App = ({ url = "/" }) => {
+const App = ({url}: {url?: string}) => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -34,7 +34,7 @@ const App = ({ url = "/" }) => {
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
-          <Routes>
+          <Routes location={url}>
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<About />} />
