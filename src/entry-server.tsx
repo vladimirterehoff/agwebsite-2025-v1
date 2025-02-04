@@ -2,7 +2,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { QueryClient, QueryClientProvider, dehydrate } from "@tanstack/react-query";
 import App from "./App";
-import { StrictMode, Suspense } from "react";
+import { StrictMode } from "react";
 
 export const render = (url: string) => {
   const queryClient = new QueryClient();
@@ -10,11 +10,9 @@ export const render = (url: string) => {
   const html = renderToString(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <StaticRouter location={url}>
-            <App />
-          </StaticRouter>
-        </Suspense>
+        <StaticRouter location={url}>
+          <App />
+        </StaticRouter>
       </QueryClientProvider>
     </StrictMode>
   );

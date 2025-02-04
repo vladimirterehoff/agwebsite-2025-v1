@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useState } from "react";
 
 const caseStudies = [
   {
@@ -26,46 +27,50 @@ const caseStudies = [
   },
 ];
 
-const CaseStudyCard = ({ study }: { study: typeof caseStudies[0] }) => (
-  <Card className="flex flex-col h-full">
-    <CardHeader>
-      <CardTitle className="text-xl">{study.title}</CardTitle>
-      <CardDescription>{study.industry}</CardDescription>
-    </CardHeader>
-    <CardContent className="flex-grow flex flex-col">
-      <div className="relative w-full h-48 mb-4">
-        <img
-          src={study.image}
-          alt={study.title}
-          className="w-full h-full object-cover rounded-md"
-          loading="lazy"
-        />
-      </div>
-      <p className="text-muted-foreground mb-4 flex-grow">{study.description}</p>
-      <Link
-        to={`/case-studies/${study.id}`}
-        className="text-primary hover:text-primary/80 font-medium inline-block mt-auto"
-      >
-        Read Case Study →
-      </Link>
-    </CardContent>
-  </Card>
-);
+const CaseStudyCard = ({ study }: { study: typeof caseStudies[0] }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <Card className="flex flex-col h-full">
+      <CardHeader>
+        <CardTitle className="text-xl">{study.title}</CardTitle>
+        <CardDescription>{study.industry}</CardDescription>
+      </CardHeader>
+      <CardContent className="flex-grow flex flex-col">
+        <div className="relative w-full h-48 mb-4">
+          {!imageLoaded && <Skeleton className="w-full h-full rounded-md" />}
+          <img
+            src={study.image}
+            alt={study.title}
+            className="w-full h-full object-cover rounded-md"
+            onLoad={() => setImageLoaded(true)}
+            style={{ display: imageLoaded ? 'block' : 'none' }}
+          />
+        </div>
+        <p className="text-muted-foreground mb-4 flex-grow">{study.description}</p>
+        <Link
+          to={`/case-studies/${study.id}`}
+          className="text-primary hover:text-primary/80 font-medium inline-block mt-auto"
+        >
+          Read Case Study →
+        </Link>
+      </CardContent>
+    </Card>
+  );
+};
 
 const CaseStudies = () => {
   return (
-    <Suspense fallback={<div>Loading case studies...</div>}>
-      <div className="container py-24">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-12">Case Studies</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {caseStudies.map((study) => (
-              <CaseStudyCard key={study.id} study={study} />
-            ))}
-          </div>
+    <div className="container py-24">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-12">Case Studies</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {caseStudies.map((study) => (
+            <CaseStudyCard key={study.id} study={study} />
+          ))}
         </div>
       </div>
-    </Suspense>
+    </div>
   );
 };
 
