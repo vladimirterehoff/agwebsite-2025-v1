@@ -14,21 +14,21 @@ import CaseStudies from "./pages/CaseStudies";
 
 const queryClient = new QueryClient();
 
-const App = ({ url = "/" }: { url?: string }) => {
+const App = ({url}: {url?: string}) => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-            </Routes>
+          <Routes location={url}>
+            <Route path="/" element={<Index />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+          </Routes>
           </main>
           <Footer />
         </div>
