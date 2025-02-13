@@ -14,32 +14,58 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Services = lazy(() => import("./pages/Services"));
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 
-// Shared loading component
+// Shared loading component for routes
 const LoadingFallback = () => (
-  <div className="container py-24">Loading...</div>
+  <div className="container py-24 flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+  </div>
 );
 
 const App = () => {
   return (
     <TooltipProvider>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">
-          <Suspense fallback={<LoadingFallback />}>
+      <Suspense fallback={<LoadingFallback />}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
             <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Index />
+                </Suspense>
+              } />
+              <Route path="/blog" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Blog />
+                </Suspense>
+              } />
+              <Route path="/about" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <About />
+                </Suspense>
+              } />
+              <Route path="/contact" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Contact />
+                </Suspense>
+              } />
+              <Route path="/services" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Services />
+                </Suspense>
+              } />
+              <Route path="/case-studies" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <CaseStudies />
+                </Suspense>
+              } />
             </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </div>
-      <Toaster />
-      <Sonner />
+          </main>
+          <Footer />
+        </div>
+        <Toaster />
+        <Sonner />
+      </Suspense>
     </TooltipProvider>
   );
 };
