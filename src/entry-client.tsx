@@ -1,3 +1,4 @@
+
 import "./index.css";
 import { StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
@@ -8,13 +9,16 @@ import App from "./App";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      // Match server config
+      retry: false,
+      refetchOnMount: false,
       refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-      retry: false
-    }
-  }
+      staleTime: Infinity,
+    },
+  },
 });
 
+// Hydrate the app
 hydrateRoot(
   document.getElementById("root") as HTMLElement,
   <StrictMode>
